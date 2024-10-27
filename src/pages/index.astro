@@ -41,11 +41,37 @@ const games = [
     description: 'Competencia por equipos 5vs5. ¡Demuestra tu puntería!'
   },
   {
-    title: 'Pokémon TCG',
-    image: '/images/pokemon.png',
-    icon: 'fas fa-cards-blank',
+    title: 'Mitos y Leyendas',
+    image: '/images/mitos.svg',
+    icon: 'fas fa-dragon',
     platform: 'Juego de Cartas',
-    description: 'Torneo formato estándar. Trae tu mazo.'
+    description: 'Torneo oficial con reglas estándar. ¡Trae tu mazo y demuestra tu estrategia!'
+  },
+  {
+    title: 'Counter-Strike 1.6',
+    image: '/images/cs.svg',
+    icon: 'fas fa-crosshairs',
+    platform: 'PC Lab INACAP',
+    description: 'Clásico torneo 5vs5. ¡Revive la leyenda en nuestros laboratorios!'
+  }
+];
+
+const snacks = [
+  {
+    name: 'Red Bull',
+    image: '/images/redbull.svg',
+  },
+  {
+    name: 'Doritos',
+    image: '/images/doritos.png',
+  },
+  {
+    name: 'Coca Cola',
+    image: '/images/coca.png',
+  },
+  {
+    name: 'Monster Energy',
+    image: '/images/monster.svg',
   }
 ];
 ---
@@ -140,71 +166,84 @@ const games = [
     </section>
 
     <!-- Games Section -->
-    <section id="games" class="py-20 bg-gradient-to-b from-dark to-dark/50 relative">
-      <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-permanent-marker text-center mb-12">
-          <span class="bg-clip-text text-transparent bg-gradient-to-r from-white to-inacap-red">
-            Juegos
-          </span>
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {games.map(game => <GameCard {...game} />)}
-        </div>
+  <section id="games" class="py-20 bg-gradient-to-b from-dark to-dark/50 relative">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-permanent-marker text-center mb-12">
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-white to-inacap-red">
+          Juegos
+        </span>
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        {games.map(game => <GameCard {...game} />)}
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Prizes Section -->
-    <section id="prizes" class="py-20 bg-gradient-to-b from-dark/50 to-dark relative overflow-hidden">
-      <div class="absolute inset-0 bg-[url('/images/prizes-bg.jpg')] bg-cover bg-center opacity-10"></div>
-      <div class="container mx-auto px-4 relative">
-        <h2 class="text-4xl font-permanent-marker text-center mb-12">
-          <span class="bg-clip-text text-transparent bg-gradient-to-r from-white to-inacap-red">
-            Premios
-          </span>
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="relative group" data-aos="fade-up">
-            <div class="absolute inset-0 bg-gradient-to-r from-inacap-red to-dark rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <div class="bg-dark/50 p-8 rounded-xl text-center border border-inacap-red/20 relative">
-              <div class="text-4xl font-permanent-marker mb-4 text-inacap-red">1°</div>
-              <i class="fas fa-keyboard text-4xl text-inacap-red mb-4 group-hover:scale-110 transition-transform"></i>
-              <h3 class="text-xl font-bold mb-4">Periféricos Gaming</h3>
-              <ul class="text-gray-300 space-y-2">
-                <li>Teclado Mecánico RGB</li>
-                <li>Mouse Gaming Pro</li>
-                <li>Auriculares 7.1</li>
-              </ul>
-            </div>
+     <!-- Prizes Section - Mystery Version -->
+  <section id="prizes" class="py-20 bg-gradient-to-b from-dark/50 to-dark relative overflow-hidden">
+    <div class="absolute inset-0 bg-[url('/images/prizes-bg.jpg')] bg-cover bg-center opacity-10"></div>
+    <div class="container mx-auto px-4 relative">
+      <h2 class="text-4xl font-permanent-marker text-center mb-12">
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-white to-inacap-red">
+          Premios Misteriosos
+        </span>
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="relative group" data-aos="fade-up">
+          <div class="absolute inset-0 bg-gradient-to-r from-inacap-red to-dark rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="bg-dark/50 p-8 rounded-xl text-center border border-inacap-red/20 relative">
+            <div class="text-4xl font-permanent-marker mb-4 text-inacap-red">1° Lugar</div>
+            <i class="fas fa-question-circle text-6xl text-inacap-red mb-4 animate-pulse"></i>
+            <h3 class="text-xl font-bold mb-4">Premio Legendario</h3>
+            <p class="text-gray-300">¿Qué increíble premio te espera? ¡Participa y descúbrelo!</p>
           </div>
-          <div class="relative group" data-aos="fade-up" data-aos-delay="100">
-            <div class="absolute inset-0 bg-gradient-to-r from-inacap-red to-dark rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <div class="bg-dark/50 p-8 rounded-xl text-center border border-inacap-red/20 relative">
-              <div class="text-4xl font-permanent-marker mb-4 text-inacap-red">2°</div>
-              <i class="fas fa-headset text-4xl text-inacap-red mb-4 group-hover:scale-110 transition-transform"></i>
-              <h3 class="text-xl font-bold mb-4">Accesorios Premium</h3>
-              <ul class="text-gray-300 space-y-2">
-                <li>Mousepad XL</li>
-                <li>Auriculares Gaming</li>
-                <li>Soporte para Auriculares</li>
-              </ul>
-            </div>
+        </div>
+        <div class="relative group" data-aos="fade-up" data-aos-delay="100">
+          <div class="absolute inset-0 bg-gradient-to-r from-inacap-red to-dark rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="bg-dark/50 p-8 rounded-xl text-center border border-inacap-red/20 relative">
+            <div class="text-4xl font-permanent-marker mb-4 text-inacap-red">2° Lugar</div>
+            <i class="fas fa-gift text-6xl text-inacap-red mb-4 animate-bounce"></i>
+            <h3 class="text-xl font-bold mb-4">Premio Épico</h3>
+            <p class="text-gray-300">Un premio que superará tus expectativas</p>
           </div>
-          <div class="relative group" data-aos="fade-up" data-aos-delay="200">
-            <div class="absolute inset-0 bg-gradient-to-r from-inacap-red to-dark rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <div class="bg-dark/50 p-8 rounded-xl text-center border border-inacap-red/20 relative">
-              <div class="text-4xl font-permanent-marker mb-4 text-inacap-red">3°</div>
-              <i class="fas fa-gift text-4xl text-inacap-red mb-4 group-hover:scale-110 transition-transform"></i>
-              <h3 class="text-xl font-bold mb-4">Pack Gamer</h3>
-              <ul class="text-gray-300 space-y-2">
-                <li>Mouse Gaming</li>
-                <li>Mousepad</li>
-                <li>Merchandising Exclusivo</li>
-              </ul>
-            </div>
+        </div>
+        <div class="relative group" data-aos="fade-up" data-aos-delay="200">
+          <div class="absolute inset-0 bg-gradient-to-r from-inacap-red to-dark rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="bg-dark/50 p-8 rounded-xl text-center border border-inacap-red/20 relative">
+            <div class="text-4xl font-permanent-marker mb-4 text-inacap-red">3° Lugar</div>
+            <i class="fas fa-box-open text-6xl text-inacap-red mb-4 animate-pulse"></i>
+            <h3 class="text-xl font-bold mb-4">Premio Sorpresa</h3>
+            <p class="text-gray-300">¡Una sorpresa que no te puedes perder!</p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+
+  <!-- Snacks Section -->
+  <section id="snacks" class="py-20 bg-gradient-to-b from-dark to-dark/50 relative">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-permanent-marker text-center mb-12">
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-white to-inacap-red">
+          Recarga tu Energía
+        </span>
+      </h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        {snacks.map(snack => (
+          <div class="relative group" data-aos="fade-up">
+            <div class="bg-dark/50 p-6 rounded-xl border border-inacap-red/20 transform transition-transform group-hover:scale-105">
+              <img 
+                src={snack.image} 
+                alt={snack.name} 
+                class="w-full h-auto object-contain mx-auto filter drop-shadow-lg"
+                style="max-height: 200px;"
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
   </main>
   <RegisterModal />
 </Layout>
