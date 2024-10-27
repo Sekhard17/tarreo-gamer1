@@ -1,34 +1,115 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const teams = [
-  {
-    name: 'Los Byte Masters',
-    career: 'Ingeniería en Informática',
-    members: [
-      { name: 'Juan Pérez', role: 'Capitán' },
-      { name: 'Ana García', role: 'Support' },
-      { name: 'Carlos López', role: 'Entry Fragger' }
-    ],
-    game: 'Valorant'
+const games = {
+  lol: {
+    name: 'League of Legends',
+    logo: '/images/lol.svg',
+    teams: [
+      {
+        name: 'Glaciar Knights',
+        career: 'Ingeniería en Informática y Gastronomía',
+        members: [
+          { name: 'Nicolás González', role: 'Representante' },
+          { name: 'Thiare Yáñez', role: 'Mid' },
+          { name: 'Pablo Campos', role: 'Top' },
+          { name: 'Agustín González', role: 'Jungle' },
+          { name: 'Nicolás Contreras', role: 'Support' }
+        ]
+      },
+      {
+        name: 'Skibidi Sigma Team FC',
+        career: 'Ingeniería en Informática y Gastronomía',
+        members: [
+          { name: 'Matías Felipe Díaz', role: 'Representante' },
+          { name: 'Vicente Cumillaf', role: 'ADC' },
+          { name: 'Cristóbal Vásquez', role: 'Mid' },
+          { name: 'Cristóbal Molina', role: 'Support' }
+        ]
+      }
+    ]
   },
-  {
-    name: 'Digital Warriors',
-    career: 'Analista Programador',
-    members: [
-      { name: 'María Rodríguez', role: 'Capitán' },
-      { name: 'Pedro Soto', role: 'Mid Laner' },
-      { name: 'Laura Muñoz', role: 'Jungler' }
-    ],
-    game: 'League of Legends'
+  valorant: {
+    name: 'Valorant',
+    logo: '/images/valorant.svg',
+    teams: [
+      {
+        name: 'SpectralOps',
+        career: 'Ingeniería en Informática',
+        members: [
+          { name: 'Bastian Rivera', role: 'Representante' },
+          { name: 'Matías Díaz', role: 'Duelist' },
+          { name: 'Tomás Lancapichun', role: 'Controller' },
+          { name: 'Ricardo Epuyao', role: 'Sentinel' },
+          { name: 'Cristóbal Molina', role: 'Initiator' }
+        ]
+      },
+      {
+        name: 'E-ketelecom',
+        career: 'Telecomunicaciones, conectividad y redes',
+        members: [
+          { name: 'Erwin Zapata', role: 'Representante' },
+          { name: 'Felipe Aguilar', role: 'Duelist' },
+          { name: 'Bastian Retamal', role: 'Controller' }
+        ]
+      }
+    ]
+  },
+  fifa: {
+    name: 'EA Sports FC 24',
+    logo: '/images/ea.png',
+    teams: [
+      {
+        name: 'Pollos Hermanos',
+        career: 'Telecomunicaciones, Conectividad y Redes',
+        members: [
+          { name: 'Marco Quezada', role: 'Representante' },
+          { name: 'Felipe Treufo', role: 'Jugador' }
+        ]
+      },
+      {
+        name: 'Real Madrid',
+        career: 'Ingeniería Eléctrica',
+        members: [
+          { name: 'Matías Casanova', role: 'Representante' }
+        ]
+      }
+    ]
+  },
+  fortnite: {
+    name: 'Fortnite',
+    logo: '/images/fortnite.svg',
+    teams: [
+      {
+        name: 'Los Malayas',
+        career: 'Ingeniería en Informática',
+        members: [
+          { name: 'Nicolás Fernández', role: 'Representante' },
+          { name: 'Diego Sandoval', role: 'Jugador' }
+        ]
+      }
+    ]
+  },
+  mk: {
+    name: 'Mortal Kombat',
+    logo: '/images/mk.svg',
+    teams: [
+      {
+        name: 'G1',
+        career: 'Ingeniería en Informática',
+        members: [
+          { name: 'Nicolás González', role: 'Representante' },
+          { name: 'Agustín González', role: 'Jugador' }
+        ]
+      }
+    ]
   }
-  // Add more teams as needed
-];
+};
 ---
 
 <Layout title="Equipos - Tarreo INACAP 2024">
   <main class="pt-20">
-    <section class="py-20 bg-gradient-to-b from-dark to-inacap-red/10">
+    <section class="py-20 bg-gradient-to-b from-dark to-dark/50 min-h-screen">
       <div class="container mx-auto px-4">
         <h1 class="text-5xl font-permanent-marker text-center mb-12">
           <span class="bg-clip-text text-transparent bg-gradient-to-r from-white to-inacap-red">
@@ -36,25 +117,35 @@ const teams = [
           </span>
         </h1>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {teams.map(team => (
-            <div class="bg-dark/50 rounded-xl p-6 border border-inacap-red/20 hover:border-inacap-red transition-colors" data-aos="fade-up">
-              <div class="flex items-center justify-between mb-4">
-                <h3 class="text-xl font-bold">{team.name}</h3>
-                <span class="text-sm text-inacap-red">{team.game}</span>
-              </div>
-              <p class="text-gray-400 mb-4">{team.career}</p>
-              <div class="space-y-3">
-                {team.members.map(member => (
-                  <div class="flex items-center justify-between">
-                    <span>{member.name}</span>
-                    <span class="text-sm text-gray-400">{member.role}</span>
-                  </div>
-                ))}
-              </div>
+        {Object.entries(games).map(([key, game]) => (
+          <div class="mb-16" data-aos="fade-up">
+            <div class="flex items-center gap-4 mb-8">
+              <img src={game.logo} alt={game.name} class="w-16 h-16 object-contain" />
+              <h2 class="text-3xl font-permanent-marker bg-clip-text text-transparent bg-gradient-to-r from-white to-inacap-red">
+                {game.name}
+              </h2>
             </div>
-          ))}
-        </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {game.teams.map(team => (
+                <div class="bg-dark/50 rounded-xl p-6 border border-inacap-red/20 hover:border-inacap-red transition-all hover:scale-105 group">
+                  <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-bold group-hover:text-inacap-red transition-colors">{team.name}</h3>
+                  </div>
+                  <p class="text-gray-400 mb-4 text-sm">{team.career}</p>
+                  <div class="space-y-3">
+                    {team.members.map(member => (
+                      <div class="flex items-center justify-between text-sm">
+                        <span class="text-white/90">{member.name}</span>
+                        <span class="text-inacap-red font-medium">{member.role}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   </main>

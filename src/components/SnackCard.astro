@@ -1,0 +1,28 @@
+---
+interface Props {
+  name: string;
+  price: string;
+  image: string;
+  description: string;
+}
+
+const { name, price, image, description } = Astro.props;
+---
+
+<div class="relative group" data-aos="fade-up">
+  <div class="absolute inset-0 bg-gradient-to-r from-inacap-red to-dark rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+  <div class="bg-dark/50 p-6 rounded-xl border border-inacap-red/20 relative overflow-hidden group-hover:scale-105 transition-transform">
+    <div class="relative z-10">
+      <img src={image} alt={name} class="w-full h-48 object-cover rounded-lg mb-4">
+      <h3 class="text-xl font-bold mb-2">{name}</h3>
+      <p class="text-gray-300 mb-4">{description}</p>
+      <div class="flex justify-between items-center">
+        <span class="text-inacap-red font-bold text-xl">{price}</span>
+        <button class="bg-inacap-red px-4 py-2 rounded-full hover:bg-red-700 transition-colors text-sm">
+          <i class="fas fa-shopping-cart mr-2"></i>
+          Ordenar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

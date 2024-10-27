@@ -40,6 +40,8 @@ const schedule = [
   }
   // Add more schedule items
 ];
+
+const notice = "Recuerda traer tu PC (escritorio o portátil) para jugar Valorant y Fortnite";
 ---
 
 <Layout title="Cronograma - Tarreo INACAP 2024">
@@ -85,7 +87,14 @@ const schedule = [
                 </div>
               </div>
             ))}
+            
           </div>
+        </div>
+      </div>
+      <div class="text-center mt-12">
+        <div class="inline-flex items-center bg-yellow-500/10 px-6 py-3 rounded-full border border-yellow-500/20">
+          <i class="fas fa-exclamation-triangle text-yellow-500 mr-2"></i>
+          <span class="text-yellow-500">{notice}</span>
         </div>
       </div>
     </section>
