@@ -26,16 +26,13 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body class="bg-dark text-white font-poppins">
-    <!-- Contenedor con zoom solo en escritorio -->
-    <div class="lg:scale-125 lg:origin-top-left">
-      <Navbar />
-      <slot />
-      <Footer />
-      <RulesModal />
-    </div>
-    
+    <Navbar />
+    <slot />
+    <Footer />
+    <RulesModal />
     <script>
       import AOS from 'aos';
+      
       document.addEventListener('DOMContentLoaded', () => {
         AOS.init({
           duration: 800,
