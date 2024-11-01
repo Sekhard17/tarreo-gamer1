@@ -3,7 +3,7 @@ const menuItems = [
   { name: 'Inicio', href: '/', icon: 'fas fa-home' },
   { name: 'Equipos', href: '/teams', icon: 'fas fa-users' },
   { name: 'Cronograma', href: '/schedule', icon: 'fas fa-calendar-alt' },
-  { name: 'Reglamento', href: 'RulesModal', icon: 'fas fa-scroll', id: 'toggleRules' },
+  { name: 'Reglamento', href: '#', icon: 'fas fa-scroll', id: 'toggleRules' },
   { name: 'Galería', href: '/gallery', icon: 'fas fa-images' },
 ];
 ---
@@ -16,6 +16,7 @@ const menuItems = [
         <span class="font-permanent-marker text-xl">Tarreo 2024</span>
       </a>
       
+      <!-- Desktop Menu -->
       <div class="hidden md:flex space-x-8">
         {menuItems.map(item => (
           <a 
@@ -28,7 +29,6 @@ const menuItems = [
           </a>
         ))}
       </div>
-
 
       <!-- Mobile Menu Button -->
       <button class="md:hidden text-2xl" id="mobileMenuBtn">
@@ -43,7 +43,7 @@ const menuItems = [
       {menuItems.map(item => (
         <a 
           href={item.href} 
-          id={`mobile-${item.id}`}
+          id={item.id === 'toggleRules' ? 'mobile-toggleRules' : null}
           class="flex items-center space-x-3 py-3 text-white hover:text-inacap-red transition-colors"
         >
           <i class={`${item.icon} text-lg`}></i>
@@ -57,7 +57,41 @@ const menuItems = [
 <script>
   const mobileMenuBtn = document.getElementById('mobileMenuBtn');
   const mobileMenu = document.getElementById('mobileMenu');
+  const modal = document.getElementById('rulesModal');
+  const closeBtn = document.getElementById('closeRules');
+  const toggleBtn = document.getElementById('toggleRules');
+  const mobileToggleBtn = document.getElementById('mobile-toggleRules');
 
+  // Función para mostrar el modal
+  const showModal = () => {
+    modal?.classList.remove('hidden');
+  };
+
+  // Función para ocultar el modal
+  const hideModal = () => {
+    modal?.classList.add('hidden');
+  };
+
+  // Eventos de clic para abrir y cerrar el modal
+  toggleBtn?.addEventListener('click', (e) => {
+    e.preventDefault();
+    showModal();
+  });
+
+  mobileToggleBtn?.addEventListener('click', (e) => {
+    e.preventDefault();
+    showModal();
+  });
+
+  closeBtn?.addEventListener('click', hideModal);
+
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      hideModal();
+    }
+  });
+
+  // Evento para el menú móvil
   mobileMenuBtn?.addEventListener('click', () => {
     mobileMenu?.classList.toggle('hidden');
     const icon = mobileMenuBtn.querySelector('i');
