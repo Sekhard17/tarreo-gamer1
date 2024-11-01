@@ -25,14 +25,17 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="bg-dark text-white font-poppins">
-    <Navbar />
-    <slot />
-    <Footer />
-    <RulesModal />
+  <body class="bg-dark text-white font-poppins flex justify-center items-center">
+    <!-- Contenedor centrado con zoom en pantallas grandes -->
+    <div class="lg:scale-125 lg:origin-center w-full max-w-screen-lg">
+      <Navbar />
+      <slot />
+      <Footer />
+      <RulesModal />
+    </div>
+    
     <script>
       import AOS from 'aos';
-      
       document.addEventListener('DOMContentLoaded', () => {
         AOS.init({
           duration: 800,
